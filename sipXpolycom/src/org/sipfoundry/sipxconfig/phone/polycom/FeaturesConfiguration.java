@@ -16,14 +16,59 @@
  */
 package org.sipfoundry.sipxconfig.phone.polycom;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.List;
+
 import org.sipfoundry.sipxconfig.device.ProfileContext;
+import org.sipfoundry.sipxconfig.phone.polycom.DirectoryConfiguration.PolycomPhonebookEntry;
+import org.sipfoundry.sipxconfig.speeddial.Button;
+import org.sipfoundry.sipxconfig.speeddial.SpeedDial;
 
 /**
  * Responsible for generating ipmid.cfg
  */
 public class FeaturesConfiguration extends ProfileContext {
-
+    private final static int MAX_BLF_LINE = 6;
+    
+    private List<Button> m_buttons;
+    private PolycomPhone m_phone;
+    
     public FeaturesConfiguration(PolycomPhone device) {
         super(device, device.getTemplateDir() + "/features.cfg.vm");
+        this.m_phone = device;
+    }
+    
+    public FeaturesConfiguration(PolycomPhone device, SpeedDial speedDial) {
+        this(device);
+        if (speedDial != null) {
+            m_buttons = speedDial.getButtons();
+        }
+    }
+    
+    public Collection<PolycomPhonebookEntry> getRows() {
+        if (m_buttons != null && !m_buttons.isEmpty()) {
+            Collection<PolycomPhonebookEntry> polycomEntries = new LinkedHashSet<PolycomPhonebookEntry>(m_buttons.size());
+            return transformSpeedDial(m_buttons, polycomEntries);
+        }
+        
+        return Collections.emptyList();
+    }
+    
+    private Collection<PolycomPhonebookEntry> transformSpeedDial(List<Button> buttons, Collection<PolycomPhonebookEntry> polycomEntries) {
+        int maxLine = MAX_BLF_LINE;
+        if(m_phone != null && m_phone.getModel() != null) {
+            maxLine = m_phone.getModel().getMaxLineCount();
+        }
+        
+        for (int i = 0, index = 0; i < buttons.size() && index < maxLine; i++) {
+            Button button = buttons.get(i);
+            if (button.isBlf()) {
+                polycomEntries.add(new PolycomPhonebookEntry(button, ++index));
+            }
+        }
+        
+        return polycomEntries;
     }
 }

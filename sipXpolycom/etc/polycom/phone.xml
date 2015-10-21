@@ -2795,7 +2795,7 @@
     </setting>
   </group>
   <group name="attendant">
-    <setting name="uri">
+    <setting name="rlsuri">
       <type>
         <string />
       </type>

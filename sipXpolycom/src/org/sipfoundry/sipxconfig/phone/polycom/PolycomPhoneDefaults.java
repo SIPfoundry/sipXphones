@@ -119,11 +119,8 @@ public class PolycomPhoneDefaults {
         return m_defaults.getDomainName();
     }
 
-    @SettingEntry(path = "attendant/uri")
+    @SettingEntry(path = "attendant/rlsuri")
     public String getAttendantUri() {
-        if (m_presenceEnabled && m_speedDial != null && m_speedDial.isBlf()) {
-            return SipUri.format(m_speedDial.getResourceListId(true), m_defaults.getDomainName(), false);
-        }
         return null;
     }
 

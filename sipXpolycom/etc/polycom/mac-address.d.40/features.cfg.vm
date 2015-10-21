@@ -75,7 +75,17 @@
   <attendant
 #set ($group = $cfg.EndpointSettings.getSetting('attendant'))
 #foreach ($setting in $cfg.getSettings($group))
-    attendant.${setting.ProfileName}="$!{setting.Value}"
+    #if($setting.Value && $setting.ProfileName != "uri")
+    	#if($setting.ProfileName == "rlsuri")
+    		attendant.uri="$!{setting.Value}"
+		#else
+			attendant.${setting.ProfileName}="$!{setting.Value}"
+		#end
+    #end
+#end
+#foreach($row in $cfg.Rows)
+    attendant.resourceList.${row.SpeedDial}.address="${row.Contact}"
+    attendant.resourceList.${row.SpeedDial}.label="$!{row.FirstName}"
 #end
   />
   

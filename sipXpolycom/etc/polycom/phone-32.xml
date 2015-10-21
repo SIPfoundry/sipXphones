@@ -2804,7 +2804,7 @@
     </setting>
   </group>
   <group name="attendant">
-    <setting name="uri">
+    <setting name="rlsuri">
       <type>
         <string />
       </type>
@@ -3025,13 +3025,13 @@
         <type>
 		  <string />
 		</type>
-        <value>ezLogo320x240.jpg</value>        
+        <value>sfLogo320x240.jpg</value>        
       </setting>
       <setting name="bg.color.bm.1.name" if="polycomVVX500">
         <type>
 		  <string />
 		</type>
-        <value>ezLogo320x240.jpg</value>        
+        <value>sfLogo320x240.jpg</value>        
       </setting>
       <setting name="bg.hiRes.gray.selection" if="polycom550||polycom560||polycom650">
         <type>
@@ -3043,19 +3043,19 @@
         <type>
 		  <string />
 		</type>
-        <value>ezLogo320x160.jpg</value>        
+        <value>sfLogo320x160.jpg</value>        
       </setting>
       <setting name="bg.hiRes.gray.bm.1.name" if="polycom550||polycom560||polycom650">
         <type>
 		  <string />
 		</type>
-        <value>ezLogo320x160.jpg</value>        
+        <value>sfLogo320x160.jpg</value>        
       </setting>
       <setting name="bg.hiRes.gray.bm.1.adj" if="polycom550||polycom560||polycom650">
         <type>
 		  <string />
 		</type>
-        <value>-6</value>        
+        <value>0</value>        
       </setting>
       <setting name="bg.hiRes.color.selection" if="polycom670">
         <type>
@@ -3067,13 +3067,13 @@
         <type>
 		  <string />
 		</type>
-        <value>ezLogo320x160.jpg</value>        
+        <value>sfLogo320x160.jpg</value>        
       </setting>
       <setting name="bg.hiRes.color.bm.1.name" if="polycom670">
         <type>
 		  <string />
 		</type>
-        <value>ezLogo320x160.jpg</value>        
+        <value>sfLogo320x160.jpg</value>        
       </setting>
       <setting name="bg.medRes.gray.selection" if="polycom450">
         <type>
@@ -3085,13 +3085,13 @@
         <type>
 		  <string />
 		</type>
-        <value>ezLogo250x116.jpg</value>        
+        <value>sfLogo250x116.jpg</value>        
       </setting>
       <setting name="bg.medRes.gray.bm.1.name" if="polycom450">
         <type>
 		  <string />
 		</type>
-        <value>ezLogo250x116.jpg</value>        
+        <value>sfLogo250x116.jpg</value>        
       </setting>
   </group>
     <group name="e911" hidden="yes">

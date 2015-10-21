@@ -3253,7 +3253,7 @@
     </setting>
   </group>
   <group name="attendant">
-    <setting name="uri">
+    <setting name="rlsuri">
       <type>
         <string />
       </type>
@@ -5223,13 +5223,13 @@
         <type>
 	      <string />
 	    </type>
-        <value>ezLogo320x240.jpg</value>        
+        <value>sfLogo320x240.jpg</value>        
       </setting>
        <setting name="bm.1.name">
         <type>
           <string />
         </type>
-        <value>ezLogo320x240.jpg</value>        
+        <value>sfLogo320x240.jpg</value>        
       </setting>
     </group>
     <group name="polycom550bg" hidden="yes">
@@ -5243,19 +5243,19 @@
       <type>
         <string />
       </type>
-      <value>ezLogo320x160.jpg</value>        
+      <value>sfLogo320x160.jpg</value>        
       </setting>
       <setting name="bm.1.name">
         <type>
           <string />
         </type>
-        <value>ezLogo320x160.jpg</value>        
+        <value>sfLogo320x160.jpg</value>        
       </setting>
       <setting name="bm.1.adj">
         <type>
           <string />
         </type>
-        <value>-6</value>        
+        <value>0</value>        
       </setting>
     </group>
     <group name="polycom670bg" hidden="yes">
@@ -5269,13 +5269,13 @@
         <type>
           <string />
         </type>
-        <value>ezLogo320x160.jpg</value>        
+        <value>sfLogo320x160.jpg</value>        
       </setting>
       <setting name="bm.1.name">
         <type>
           <string />
         </type>
-        <value>ezLogo320x160.jpg</value>
+        <value>sfLogo320x160.jpg</value>
       </setting>
     </group>
     <group name="polycom450bg" hidden="yes">
@@ -5289,13 +5289,13 @@
         <type>
           <string />
         </type>
-        <value>ezLogo250x116.jpg</value>
+        <value>sfLogo250x116.jpg</value>
       </setting>
       <setting name="bm.1.adj">
         <type>
           <string />
         </type>
-        <value>-6</value>
+        <value>0</value>
       </setting>
     </group>
     <group name="polycomVVX1500bg" hidden="yes">
@@ -5309,7 +5309,7 @@
         <type>
           <string />
         </type>
-        <value>ezLogo800x480.jpg</value>
+        <value>sfLogo800x480.jpg</value>
       </setting>
     </group>
   <group name="e911" hidden="yes">

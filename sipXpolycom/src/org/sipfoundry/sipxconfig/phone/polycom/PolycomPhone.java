@@ -618,7 +618,9 @@ public class PolycomPhone extends Phone implements BeanFactoryAware {
         @Override
         protected ProfileContext createContext(Device device) {
             PolycomPhone phone = (PolycomPhone) device;
-            return new FeaturesConfiguration(phone);
+            PhoneContext phoneContext = phone.getPhoneContext();
+            SpeedDial speedDial = phoneContext.getSpeedDial(phone);
+            return new FeaturesConfiguration(phone, speedDial);
         }
     }
 
