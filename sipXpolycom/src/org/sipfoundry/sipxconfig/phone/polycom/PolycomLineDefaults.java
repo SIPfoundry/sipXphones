@@ -135,6 +135,11 @@ public class PolycomLineDefaults {
         return null;
     }
 
+    @SettingEntry(path = "voIpProt/SIP.outboundProxy/address")
+    public String getOutboundProxy() {
+        return m_line.getPhoneContext().getPhoneDefaults().getDomainName();
+    }
+
     @SettingEntry(path = "line-dialplan/digitmap/routing.1/emergency.1.value")
     public String getEmergencyNumber() {
         return m_defaults.getEmergencyNumber();

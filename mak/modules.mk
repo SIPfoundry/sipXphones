@@ -9,7 +9,8 @@ sipx_core = \
 sipXcisco \
 sipXpolycom \
 sipXsnom \
-sipXyealink
+sipXyealink \
+sipXaudiocodes
 
 
 sipx_all =   $(sipx_core)
