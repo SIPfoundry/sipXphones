@@ -10,7 +10,9 @@ sipXcisco \
 sipXpolycom \
 sipXsnom \
 sipXyealink \
-sipXaudiocodes
+sipXaudiocodes \
+sipXcounterpath \
+sipXisphone
 
 
 sipx_all =   $(sipx_core)
