@@ -119,6 +119,11 @@ public class PolycomPhoneDefaults {
         return m_defaults.getDomainName();
     }
 
+    @SettingEntry(path = "voIpProt/SIP.outboundProxy/address")
+    public String getOutboundProxy() {
+        return m_defaults.getDomainName();
+    }
+
     @SettingEntry(path = "attendant/rlsuri")
     public String getAttendantUri() {
         return null;
