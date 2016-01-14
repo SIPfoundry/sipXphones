@@ -6,15 +6,11 @@
 # should be listed after it's dependencies.  No circular dependecies
 # allowed.
 sipx_core = \
-sipXcisco \
 sipXpolycom \
-sipXsnom \
 sipXyealink \
 sipXaudiocodes \
 sipXcounterpath \
-sipXisphone \
 sipXgrandstream
-
 
 sipx_all =   $(sipx_core)
 
