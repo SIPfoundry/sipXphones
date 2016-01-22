@@ -9,12 +9,13 @@ Vendor: SIPLABS
 Packager: SIPLABS <techinfo@siplabs.ru>
 Url: http://www.siplabs.ru
 
+Obsoletes: @PACKAGE_OBSOLETE_NAME@
 BuildRequires: java-1.7.0-openjdk-devel
 BuildRequires: automake
-BuildRequires: sipxcommons >= %version
-BuildRequires: sipxconfig >= %version
+BuildRequires: sipxcommons-ng >= %version
+BuildRequires: sipxconfig-ng >= %version
 
-Requires: sipxconfig
+Requires: sipxconfig-ng
 
 Source: %name-%version.tar.gz
 
