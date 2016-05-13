@@ -10,7 +10,8 @@ sipXpolycom \
 sipXyealink \
 sipXaudiocodes \
 sipXcounterpath \
-sipXgrandstream
+sipXgrandstream \
+sipXcisco
 
 sipx_all =   $(sipx_core)
 
