@@ -371,7 +371,7 @@
       <value />
     </setting>
   </group>
-  <group name="xmpp-config">
+  <group name="xmpp-config" hidden="yes">
     <setting name="configured">
       <type refid="true-false" />
       <value>false</value>
