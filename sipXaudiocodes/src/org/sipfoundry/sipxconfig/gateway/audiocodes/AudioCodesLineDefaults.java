@@ -17,6 +17,7 @@ import org.sipfoundry.sipxconfig.setting.SettingEntry;
 public class AudioCodesLineDefaults {
     private static final String SIP_USER_NAME = "SIP/Authentication/Username";
     private static final String SIP_PASSWORD = "SIP/Authentication/Password";
+    private static final String SIP_CALLER_ID = "CALLER_ID/Display";
 
     private Line m_line;
 
@@ -28,7 +29,7 @@ public class AudioCodesLineDefaults {
     public String getUserName() {
         User user = m_line.getUser();
         if (user == null) {
-            return null;
+            return "";
         }
 
         return user.getUserName();
@@ -38,10 +39,20 @@ public class AudioCodesLineDefaults {
     public String getPassword() {
         User user = m_line.getUser();
         if (user == null) {
-            return null;
+            return "";
         }
 
         return user.getSipPassword();
+    }
+
+    @SettingEntry(path = SIP_CALLER_ID)
+    public String getCallerIdDisplay() {
+        User user = m_line.getUser();
+        if (user == null) {
+            return "";
+        }
+
+        return user.getUserName();
     }
 
     static LineInfo getLineInfo(Line line, DeviceDefaults defaults) {
