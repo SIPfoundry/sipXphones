@@ -28,7 +28,7 @@ ${s.ProfileName}=${codec}
 ;** Ini File **
 ;**************
 
-;generated from template by sipXconfig
+;generated from template by sipXconfig (firmware 5.0)
 ;------------------------------
 
 #foreach ($s in $flatSettings)

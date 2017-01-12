@@ -34,7 +34,7 @@ $s.profileName $settingIndex=${codec};
 ;** Ini File **
 ;**************
 
-;generated from template by sipXconfig
+;generated from template by sipXconfig (firmware 5.2)
 ;------------------------------
 
 #foreach ($s in $flatSettings)
