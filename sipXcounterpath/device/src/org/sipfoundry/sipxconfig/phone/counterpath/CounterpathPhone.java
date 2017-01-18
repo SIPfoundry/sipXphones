@@ -189,11 +189,12 @@ public class CounterpathPhone extends Phone {
         public CounterpathLineDefaults(Line line, SystemAuthPolicyCollectorImpl authPolicy) {
             m_line = line;
             m_user = m_line.getUser();
-            if (m_user != null) {
-                m_imAccount = new ImAccount(m_user);
-            } else {
-                m_imAccount = null;
-            }
+//            if (m_user != null) {
+//                m_imAccount = new ImAccount(m_user);
+//            } else {
+//                m_imAccount = null;
+//            }
+            m_imAccount = null;
             m_authPolicy = authPolicy;
         }
 

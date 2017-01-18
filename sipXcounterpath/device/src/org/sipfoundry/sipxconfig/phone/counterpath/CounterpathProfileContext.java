@@ -65,11 +65,12 @@ public class CounterpathProfileContext extends ProfileContext<Phone> {
     }
 
     private static boolean isImEnabled(Line line) {
-        User user = line.getUser();
-        if (user == null) {
-            return false;
-        }
-        return new ImAccount(user).isEnabled();
+//        User user = line.getUser();
+//        if (user == null) {
+//            return false;
+//        }
+//        return new ImAccount(user).isEnabled();
+    	return false;
     }
 
     /**
