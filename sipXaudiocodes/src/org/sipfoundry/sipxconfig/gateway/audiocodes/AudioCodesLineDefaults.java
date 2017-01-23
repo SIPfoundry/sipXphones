@@ -67,5 +67,6 @@ public class AudioCodesLineDefaults {
     static void setLineInfo(Line line, LineInfo lineInfo) {
         line.setSettingValue(SIP_USER_NAME, lineInfo.getUserId());
         line.setSettingValue(SIP_PASSWORD, lineInfo.getPassword());
+        line.setSettingValue(SIP_CALLER_ID, lineInfo.getUserId());
     }
 }

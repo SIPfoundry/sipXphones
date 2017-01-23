@@ -24,6 +24,15 @@ ${s.ProfileName}=${codec}
 #end
 #end
 #end
+
+#macro(caller_id_settings $line)
+#if($line.getSettingValue('CALLER_ID/Display') && "$!line.getSettingValue('CALLER_ID/Display')" != "")
+$line.getSettingValue('CALLER_ID/Display')##
+#else
+$line.getSettingValue('SIP/Authentication/Username')##
+#end
+#end
+
 ;**************
 ;** Ini File **
 ;**************
@@ -93,9 +102,9 @@ TRUNKGROUP=${trunk_id}-${trunk_id},${username}
 FORMAT CallerDisplayInfo_Index = CallerDisplayInfo_DisplayString, CallerDisplayInfo_IsCidRestricted;
 #foreach ($line in $phone.lines)
 #set($line_id = $velocityCount - 1)
-#set($display = $line.getSettingValue('CALLER_ID/Display'))
+#set($display = "#caller_id_settings($line)")
 #set($cidRestricted = $line.getSettingValue('CALLER_ID/CIDRestricted'))
-CallerDisplayInfo $line_id = "${display}", $cidRestricted;
+CallerDisplayInfo $line_id = "$!{display}", $cidRestricted;
 #end
 [\CallerDisplayInfo]
 #end
