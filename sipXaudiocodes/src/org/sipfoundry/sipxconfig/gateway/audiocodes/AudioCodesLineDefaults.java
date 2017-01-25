@@ -52,13 +52,14 @@ public class AudioCodesLineDefaults {
             return "";
         }
 
-        return user.getUserName();
+        return user.getDisplayName();
     }
 
     static LineInfo getLineInfo(Line line, DeviceDefaults defaults) {
         LineInfo li = new LineInfo();
         li.setUserId(line.getSettingValue(SIP_USER_NAME));
         li.setPassword(line.getSettingValue(SIP_PASSWORD));
+        li.setDisplayName(line.getSettingValue(SIP_CALLER_ID));
         li.setRegistrationServer(defaults.getDomainName());
         li.setRegistrationServerPort(Integer.toString(defaults.getProxyAddress().getPort()));
         return li;
@@ -67,6 +68,6 @@ public class AudioCodesLineDefaults {
     static void setLineInfo(Line line, LineInfo lineInfo) {
         line.setSettingValue(SIP_USER_NAME, lineInfo.getUserId());
         line.setSettingValue(SIP_PASSWORD, lineInfo.getPassword());
-        line.setSettingValue(SIP_CALLER_ID, lineInfo.getUserId());
+        line.setSettingValue(SIP_CALLER_ID, lineInfo.getDisplayName());
     }
 }

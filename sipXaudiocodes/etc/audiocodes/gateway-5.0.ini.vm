@@ -28,6 +28,8 @@ ${s.ProfileName}=${codec}
 #macro(caller_id_settings $line)
 #if($line.getSettingValue('CALLER_ID/Display') && "$!line.getSettingValue('CALLER_ID/Display')" != "")
 $line.getSettingValue('CALLER_ID/Display')##
+#elseif($line.user.displayName && "$!line.user.displayName" != "")
+${line.user.displayName}##
 #else
 $line.getSettingValue('SIP/Authentication/Username')##
 #end
