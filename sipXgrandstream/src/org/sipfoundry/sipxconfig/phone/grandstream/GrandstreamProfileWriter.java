@@ -15,14 +15,20 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
+import org.sipfoundry.sipxconfig.permission.PermissionName;
 import org.sipfoundry.sipxconfig.phone.Line;
 import org.sipfoundry.sipxconfig.setting.AbstractSettingVisitor;
 import org.sipfoundry.sipxconfig.setting.Setting;
 
 public class GrandstreamProfileWriter extends AbstractSettingVisitor {
+    private static final String VOICEMAIL_GSPHONE_PATH = "port/P33-P426-P526-P626-P1726-P1826";
+    private static final String MWI_GSPHONE_PATH = "port/P99-P415-P515-P615-P1715-P1815";
+    private static final String MWI_GSHT_PATH = "port/P99-P709-P99-P709";
+    
     protected static final char LF = 0x0a;
     private OutputStream m_wtr;
     private final GrandstreamPhone m_phone;
@@ -132,13 +138,30 @@ public class GrandstreamProfileWriter extends AbstractSettingVisitor {
 
     public Collection<Line> getLines() {
         int lineCount = getPhone().getModel().getMaxLineCount();
+        GrandstreamPhone phone = (GrandstreamPhone)getPhone();
         Collection<Line> lines = new ArrayList(lineCount);
-        if (getPhone().getLines().isEmpty()) {
+        if (phone.getLines().isEmpty()) {
             Line line = getPhone().createSpecialPhoneProvisionUserLine();
             line.setSettingValue("port/P270-P417-P517-P617-P1717-P1817", line.getUser().getDisplayName());
             lines.add(line);
         } else {
-            lines.addAll(getPhone().getLines());
+            List<Line> phoneLines = phone.getLines();
+            for (Line line : phoneLines) {
+                if (!line.getUser().hasPermission(PermissionName.VOICEMAIL)
+                        || !phone.isMwiSubscriptionEnable()) {
+                    if(phone.getGsModel().isHandyTone()) {
+                        // For HandyTone
+                        line.setSettingTypedValue(MWI_GSHT_PATH, false);
+                    } else if(phone.getGsModel().isFxsGxw()){
+                        //Currently no settings for voicemail for fxsGsw
+                    } else {
+                        //For GsPhone
+                        line.setSettingValue(VOICEMAIL_GSPHONE_PATH, "");
+                        line.setSettingTypedValue(MWI_GSPHONE_PATH, false);
+                    }
+                }
+            }
+            lines.addAll(phoneLines);
             // copy in blank lines of all unused lines
             for (int i = lines.size(); i < lineCount; i++) {
                 Line line = getPhone().createLine();

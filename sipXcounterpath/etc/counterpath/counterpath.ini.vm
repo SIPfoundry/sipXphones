@@ -8,6 +8,13 @@ ${setting.name}="false"
 #else
 ${setting.name}="true"
 #end
+#elseif($setting.name == "subscribe_to_message_waiting")
+#if(${setting.value}=="true")
+${setting.name}="1"
+#else
+${setting.name}="0"
+#end
+#else
 #else
 #if($setting.value)
 ${setting.name}="${setting.value}"

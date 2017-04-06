@@ -58,7 +58,8 @@ public class SipBasicConfiguration extends ProfileContext {
 
         for (Line line : lines) {
             if (line.getUser() != null && line.getUser().getSettings() != null
-                    && !line.getUser().hasPermission(PermissionName.VOICEMAIL)) {
+                    && (!line.getUser().hasPermission(PermissionName.VOICEMAIL)
+                    || !phone.isMwiSubscriptionEnable())) {
                 line.setSettingValue(MWI_SUBSCRIBE_SETTING, BLANK_STRING);
             }
             linesSettings.add(line.getSettings());

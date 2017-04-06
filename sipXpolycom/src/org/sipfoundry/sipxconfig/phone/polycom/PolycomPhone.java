@@ -37,6 +37,8 @@ import org.sipfoundry.sipxconfig.device.ProfileContext;
 import org.sipfoundry.sipxconfig.device.ProfileFilter;
 import org.sipfoundry.sipxconfig.device.ProfileLocation;
 import org.sipfoundry.sipxconfig.feature.LocationFeature;
+import org.sipfoundry.sipxconfig.mwi.Mwi;
+import org.sipfoundry.sipxconfig.mwi.MwiSettings;
 import org.sipfoundry.sipxconfig.phone.Line;
 import org.sipfoundry.sipxconfig.phone.LineInfo;
 import org.sipfoundry.sipxconfig.phone.Phone;
@@ -108,6 +110,7 @@ public class PolycomPhone extends Phone implements BeanFactoryAware {
     private AddressManager m_addressManager;
     private BeanFactory m_beanFactory;
     private CertificateManager m_certificateManager;
+    private Mwi m_mwiManager;
 
     @Override
     public void setModel(PhoneModel model) {
@@ -118,7 +121,15 @@ public class PolycomPhone extends Phone implements BeanFactoryAware {
     public void setCertificateManager(CertificateManager certificateManager) {
         m_certificateManager = certificateManager;
     }
-
+    
+    public void setMwiManager(Mwi mwi) {
+    	m_mwiManager = mwi;
+    }
+    
+    public boolean isMwiSubscriptionEnable() {
+    	return m_mwiManager.getSettings().isMwiSubscriptionEnable();
+    }
+ 
     public String getDefaultVersionId() {
         DeviceVersion version = getDeviceVersion();
         return version != null ? version.getVersionId() : null;

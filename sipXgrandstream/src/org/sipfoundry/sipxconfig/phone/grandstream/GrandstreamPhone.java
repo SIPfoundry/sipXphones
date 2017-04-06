@@ -26,6 +26,7 @@ import org.sipfoundry.sipxconfig.device.DeviceTimeZone;
 import org.sipfoundry.sipxconfig.device.Profile;
 import org.sipfoundry.sipxconfig.device.ProfileContext;
 import org.sipfoundry.sipxconfig.device.ProfileFilter;
+import org.sipfoundry.sipxconfig.mwi.Mwi;
 import org.sipfoundry.sipxconfig.phone.Line;
 import org.sipfoundry.sipxconfig.phone.LineInfo;
 import org.sipfoundry.sipxconfig.phone.Phone;
@@ -261,8 +262,17 @@ public class GrandstreamPhone extends Phone {
 
     private String m_phonebookLocation = "gs_phonebook/{0}";
     private String m_phonebookFilename = "/phonebook.xml";
+    private Mwi m_mwiManager;
 
     public GrandstreamPhone() {
+    }
+    
+    public void setMwiManager(Mwi mwi) {
+        m_mwiManager = mwi;
+    }
+    
+    public boolean isMwiSubscriptionEnable() {
+        return m_mwiManager.getSettings().isMwiSubscriptionEnable();
     }
 
     @Override

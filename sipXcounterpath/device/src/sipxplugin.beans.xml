@@ -20,5 +20,6 @@
     <property name="locationsManager" ref="locationsManager"/>
     <property name="addressManager" ref="addressManager"/>
     <property name="systemAuthPolicyCollector" ref="systemAuthPolicyCollector"/> 
+    <property name="mwiManager" ref="mwi"/>
   </bean>
 </beans>

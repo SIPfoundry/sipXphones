@@ -1289,6 +1289,7 @@
     parent="abstractPhone">
     <property name="addressManager" ref="addressManager" />
     <property name="certificateManager" ref="certificateManager" />
+    <property name="mwiManager" ref="mwi"/>
   </bean>
   <bean id="polycomFirmware" class="org.sipfoundry.sipxconfig.upload.UploadSpecification">
     <property name="beanId" value="polycomUpload" />

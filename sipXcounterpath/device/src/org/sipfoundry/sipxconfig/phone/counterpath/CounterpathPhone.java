@@ -35,6 +35,7 @@ import org.sipfoundry.sipxconfig.device.Profile;
 import org.sipfoundry.sipxconfig.device.ProfileContext;
 import org.sipfoundry.sipxconfig.device.ProfileFilter;
 import org.sipfoundry.sipxconfig.im.ImAccount;
+import org.sipfoundry.sipxconfig.mwi.Mwi;
 import org.sipfoundry.sipxconfig.phone.Line;
 import org.sipfoundry.sipxconfig.phone.LineInfo;
 import org.sipfoundry.sipxconfig.phone.Phone;
@@ -68,6 +69,7 @@ public class CounterpathPhone extends Phone {
     private String m_syswwwdir;
     private AddressManager m_addressManager;
     private LocationsManager m_locationsManager;
+    private Mwi m_mwiManager;
     private SystemAuthPolicyCollectorImpl m_authPolicy;
 
     // private static final String WEBDAV_URL = "resources/resource_lists_path";
@@ -393,5 +395,13 @@ public class CounterpathPhone extends Phone {
 
     public void setSystemAuthPolicyCollector(SystemAuthPolicyCollectorImpl authPolicy) {
         m_authPolicy = authPolicy;
+    }
+
+    public void setMwiManager(Mwi mwi) {
+        m_mwiManager = mwi;
+    }
+    
+    public boolean isMwiSubscriptionEnable() {
+        return m_mwiManager.getSettings().isMwiSubscriptionEnable();
     }
 }

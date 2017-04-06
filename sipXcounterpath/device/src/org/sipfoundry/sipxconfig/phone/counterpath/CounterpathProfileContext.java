@@ -17,9 +17,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
-import org.sipfoundry.sipxconfig.common.User;
 import org.sipfoundry.sipxconfig.device.ProfileContext;
-import org.sipfoundry.sipxconfig.im.ImAccount;
 import org.sipfoundry.sipxconfig.permission.PermissionName;
 import org.sipfoundry.sipxconfig.phone.Line;
 import org.sipfoundry.sipxconfig.phone.Phone;
@@ -35,7 +33,7 @@ public class CounterpathProfileContext extends ProfileContext<Phone> {
     @Override
     public Map<String, Object> getContext() {
         Map<String, Object> context = super.getContext();
-        Phone phone = getDevice();
+        CounterpathPhone phone = (CounterpathPhone)getDevice();
         LeafSettings ps = new LeafSettings();
         phone.getSettings().acceptVisitor(ps);
         context.put("phone_leaf_settings", ps.getSip());
@@ -51,8 +49,10 @@ public class CounterpathProfileContext extends ProfileContext<Phone> {
                 lineXmppSettings.add(ls.getXmpp());
             }
 
-            if (!line.getUser().hasPermission(PermissionName.VOICEMAIL)) {
+            if (!line.getUser().hasPermission(PermissionName.VOICEMAIL)
+                    || !phone.isMwiSubscriptionEnable()) {
                 line.setSettingValue("voicemail/voicemail_url", "");
+                line.setSettingTypedValue("mwi_notification/subscribe_to_message_waiting", false);
             }
         }
         context.put("line_sip_settings", lineSipSettings);

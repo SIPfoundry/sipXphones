@@ -247,6 +247,7 @@
   <bean id="grandstream" class="org.sipfoundry.sipxconfig.phone.grandstream.GrandstreamPhone" scope="prototype"
     parent="abstractPhone">
     <property name="profileGenerator" ref="grandstreamProfileGenerator" />
+    <property name="mwiManager" ref="mwi" />
   </bean>
   <bean id="gsPhoneFirmware" class="org.sipfoundry.sipxconfig.upload.UploadSpecification">
     <property name="beanId" value="upload" />
