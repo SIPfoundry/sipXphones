@@ -15,7 +15,6 @@ ${setting.name}="1"
 ${setting.name}="0"
 #end
 #else
-#else
 #if($setting.value)
 ${setting.name}="${setting.value}"
 #else
