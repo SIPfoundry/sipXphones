@@ -26,8 +26,8 @@ import org.sipfoundry.sipxconfig.setting.Setting;
 
 public class GrandstreamProfileWriter extends AbstractSettingVisitor {
     private static final String VOICEMAIL_GSPHONE_PATH = "port/P33-P426-P526-P626-P1726-P1826";
-    private static final String MWI_GSPHONE_PATH = "port/P99-P415-P515-P615-P1715-P1815";
-    private static final String MWI_GSHT_PATH = "port/P99-P709-P99-P709";
+    private static final String MWI_GSPHONE_PATH = "advanced/P99-P415-P515-P615-P1715-P1815";
+    private static final String MWI_GSHT_PATH = "advanced/P99-P709-P99-P709";
     
     protected static final char LF = 0x0a;
     private OutputStream m_wtr;
