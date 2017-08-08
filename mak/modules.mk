@@ -11,7 +11,8 @@ sipXyealink \
 sipXaudiocodes \
 sipXcounterpath \
 sipXgrandstream \
-sipXcisco
+sipXcisco \
+sipXsnom
 
 sipx_all =   $(sipx_core)
 
