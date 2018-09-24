@@ -34,7 +34,7 @@ public class PolycomLineDefaults {
         String uri = null;
         if (isMwiEnabled()) {
             User u = m_line.getUser();
-            if (u != null && m_line.isNotSpecialPhoneProvisionUserLine()) {
+            if (u != null && m_line.isNotSpecialPhoneProvisionUserLine() && u.getIsMWI()) {
                 uri = u.getUserName();
             }
         }
@@ -46,7 +46,7 @@ public class PolycomLineDefaults {
         String uri = null;
         if (isMwiEnabled()) {
             User u = m_line.getUser();
-            if (u != null && m_line.isNotSpecialPhoneProvisionUserLine()) {
+            if (u != null && m_line.isNotSpecialPhoneProvisionUserLine() && u.getIsMWI()) {
                 uri = m_defaults.getVoiceMail();
             }
         }
@@ -58,7 +58,7 @@ public class PolycomLineDefaults {
         String mode = "disabled";
         if (isMwiEnabled()) {
             User u = m_line.getUser();
-            if (u != null && m_line.isNotSpecialPhoneProvisionUserLine()) {
+            if (u != null && m_line.isNotSpecialPhoneProvisionUserLine() && u.getIsMWI()) {
                 mode = PolycomPhone.CONTACT_MODE;
             }
         }
