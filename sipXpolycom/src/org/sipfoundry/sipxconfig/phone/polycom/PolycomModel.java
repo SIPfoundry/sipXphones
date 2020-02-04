@@ -61,6 +61,7 @@ public final class PolycomModel extends PhoneModel {
     public static final DeviceVersion VER_5_5_2 = new DeviceVersion(PolycomPhone.BEAN_ID, "5.5.2");
     public static final DeviceVersion VER_5_8_0 = new DeviceVersion(PolycomPhone.BEAN_ID, "5.8.0");
     public static final DeviceVersion VER_5_8_1 = new DeviceVersion(PolycomPhone.BEAN_ID, "5.8.1");
+    public static final DeviceVersion VER_5_9_5 = new DeviceVersion(PolycomPhone.BEAN_ID, "5.9.5");
 
     /** Firmware for Polycom RealPresence */
     public static final DeviceVersion VER_5_4_0_RP = new DeviceVersion(PolycomPhone.BEAN_ID, "5.4.0_RP");
@@ -76,7 +77,7 @@ public final class PolycomModel extends PhoneModel {
         VER_5_2_0, VER_5_2_1, VER_5_2_2, VER_5_2_3, VER_5_2_4, VER_5_2_5, VER_5_3_0, VER_5_3_1, VER_5_3_2,
         VER_5_3_3, VER_5_4_0, VER_5_4_1, VER_5_4_2, VER_5_4_3, VER_5_4_4, VER_5_4_5, VER_5_4_6, VER_5_5_0,
         VER_5_5_1, VER_5_5_2, VER_5_4_0_RP, VER_5_4_1_RP, VER_5_4_2_RP, VER_5_4_3_RP, VER_5_4_4_RP, VER_5_4_5_RP,
-        VER_5_8_0, VER_5_8_1
+        VER_5_8_0, VER_5_8_1, VER_5_9_5
     };
     private static final Log LOG = LogFactory.getLog(PolycomModel.class);
     private DeviceVersion m_deviceVersion;
