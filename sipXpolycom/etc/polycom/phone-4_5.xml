@@ -3894,7 +3894,7 @@
         <value>24800</value>
       </setting>
     </group>
-    <group name="ptt" if="[45].[0-9].[0-9X])">
+    <group name="ptt" if="([45].[0-9].[0-9X])">
       <setting name="address">
         <type>
 		  <string />
@@ -5479,7 +5479,7 @@
 	      </setting>
 	   </group>
     </group>
-    <group name="prov"  if="[45].[0-9].[0-9X])">
+    <group name="prov"  if="([45].[0-9].[0-9X])">
       <setting name="login.enabled">
 		<type><boolean /></type>
 		<value>0</value>
