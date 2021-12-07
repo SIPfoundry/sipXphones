@@ -1368,4 +1368,13 @@
     <property name="phoneContext" ref="phoneContext" />
     <property name="profileManager" ref="phoneProfileManager" />
   </bean>
+  <bean id="tftpHotelingLocation" class="org.sipfoundry.sipxconfig.device.FileSystemProfileLocation">
+    <property name="parentDir">
+      <value>${sysdir.phone}/profile/tftproot/hoteling</value>
+    </property>
+  </bean>
+  <bean id="polycomHoteling" class="org.sipfoundry.sipxconfig.phone.polycom.PolycomHoteling">
+    <property name="defaultProfileLocation" ref="tftpHotelingLocation" />
+    <property name="phoneBaseModel" ref="polycomVVX450"/>
+  </bean>
 </beans>
